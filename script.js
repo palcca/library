@@ -1,6 +1,10 @@
 const library = (function () {
     let myLibrary = [];
     const LIBRARY = document.querySelector(".library");
+    const dialog = document.querySelector("dialog");
+    const btnNew = document.querySelector(".btnNew");
+    const btnCancel = document.querySelector(".btnCancel");
+    const btnSave = document.querySelector(".newSave");
 
     function Book(title, author, pages, read, index) {
         this.title = title;
@@ -22,31 +26,30 @@ const library = (function () {
 
 
         }
-
-        this.info = function () {
-            return title + "," + author + "," + pages + "," + read;
-        }
     }
 
     function fill() {
+
         for (i = 0; i < 5; i++) {
             book = new Book("Origin", "J.L. Armentrout", 430, "no", i)
             book.addBookToLibrary();
         }
     }
 
-    function layoutBooks() {
+    function layoutCards() {
+
         while (LIBRARY.firstChild) {
             LIBRARY.removeChild(LIBRARY.firstChild);
         }
+        
         for (i = 0; i < myLibrary.length; i++) {
-            let content = new Card(myLibrary[i]);
+            let content = makeCard(myLibrary[i]);
             myLibrary[i].index = i;
             LIBRARY.appendChild(content);
         }
     }
 
-    function Card(Book) {
+    function makeCard(Book) {
         let cardButtons = document.createElement("div");
         let removeBtn = document.createElement("button");
         let readBtn = document.createElement("button")
@@ -69,12 +72,12 @@ const library = (function () {
 
         readBtn.addEventListener("click", () => {
             Book.readBook();
-            layoutBooks();
+            layoutCards();
         });
 
         removeBtn.addEventListener("click", () => {
             Book.removeBookFromLibrary();
-            layoutBooks();
+            layoutCards();
         });
         card.appendChild(title);
         card.appendChild(author);
@@ -90,19 +93,13 @@ const library = (function () {
         return card;
     }
 
-
-    const dialog = document.querySelector("dialog");
-    const btnNew = document.querySelector(".btnNew");
-
     btnNew.addEventListener("click", () => {
         dialog.showModal();
     });
-    const btnCancel = document.querySelector(".btnCancel");
 
     btnCancel.addEventListener("click", () => {
         dialog.close();
     });
-    const btnSave = document.querySelector(".newSave");
 
     btnSave.addEventListener("click", () => {
         const newBookTitle = document.querySelector(".newTitle");
@@ -119,11 +116,11 @@ const library = (function () {
             newBookPages.value = "";
             newBookRead.value = "no";
             newBook.addBookToLibrary();
-            layoutBooks();
+            layoutCards();
             dialog.close();
         }
     });
 
     fill();
-    layoutBooks()
+    layoutCards()
 })();
