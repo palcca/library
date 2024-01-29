@@ -1,5 +1,9 @@
 import _ from "lodash";
 import "./style.css";
+import "./cardstyle.css";
+import "./headerstyle.css";
+import "./sidebarstyle.css";
+import "./formstyle.css";
 import {
   makeCard,
   layoutCards,
@@ -13,7 +17,7 @@ const myLibrary = [];
 // const btnNew = document.querySelector(".btnNew");
 
 for (let i = 0; i < 5; i++) {
-  myLibrary[i] = new Section(`${i}. section`, "leirasa");
+  myLibrary[i] = new Section(`${i}. fantasy`, "leirasa");
 }
 
 /* btnNew.addEventListener("click", () => {
@@ -22,7 +26,13 @@ for (let i = 0; i < 5; i++) {
 
 function fill() {
   for (let i = 0; i < 15; i++) {
-    const book = new Book(i, "J.L. Armentrout", 430, "no", i);
+    const book = new Book(
+      i + ". címcíyhdkajfhkaldfhlaskjdfh ",
+      "J.L. Armenout",
+      430,
+      "no",
+      i
+    );
     myLibrary[0].addBookToSection(book);
   }
 }

@@ -1,0 +1,61 @@
+.formContainer {
+  background: linear-gradient(to right, #d97706 0%, #d97706 2%, white 3%);
+  padding: 3rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.formContainer div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formContainer div p {
+  font-weight: 600;
+}
+
+.formContainer input {
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 2rem;
+  width: 12rem;
+  background-color: rgba(0, 0, 0, 0.214);
+}
+
+.newSave {
+  box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
+  width: 7rem;
+  color: white;
+  font-weight: 900;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0ea5e9;
+  border: 0.2rem solid rgba(3, 106, 161, 0.628);
+}
+
+.newSave:active {
+  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
+  background-color: #d97706;
+}
+
+.btnCancel {
+  box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
+  width: 7rem;
+  color: white;
+  font-weight: 900;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0ea5e9;
+  border: 0.2rem solid rgba(3, 106, 161, 0.628);
+}
+
+.btnCancel:active {
+  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
+  background-color: #d97706;
+}

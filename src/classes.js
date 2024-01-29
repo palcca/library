@@ -7,8 +7,8 @@ class Book {
     this.index = index;
   }
 
-  readBook = () => {
-    this.read = "OLVASVA";
+  readBook (){
+    this.read = "OLVASTAD";
   };
 }
 

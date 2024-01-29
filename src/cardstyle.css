@@ -1,0 +1,89 @@
+.card {
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+  width: 15rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.7rem 0.5rem 2rem 0.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+    to right,
+    #d97706 0%,
+    #d97706 3%,
+    rgba(14, 164, 233, 0.01) 3%
+  );
+  border: 0rem solid rgba(3, 106, 161, 0.628);
+  background-color: rgba(175, 6, 217, 0.15);
+}
+
+.card:hover {
+  position: relative;
+  top: -0.15rem;
+  left: -0.15rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+  border-color: #d97706;
+}
+
+.cardButtons {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card > div {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 95%;
+  text-align: center;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  border-bottom: 2px solid rgba(14, 164, 233, 0.5);
+  background-color: rgba(255, 255, 255, 0.33);
+}
+
+.card > div:nth-child(5) {
+  overflow: visible;
+  padding: 0;
+}
+
+.removeBtn {
+  position: absolute;
+  top: -17.5rem;
+  left: 5.1rem;
+  width: 2rem;
+  color: white;
+  font-weight: 900;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  background-color: #0ea5e9;
+  border: 0.2rem solid rgba(3, 106, 161, 0.628);
+}
+
+.removeBtn:active {
+  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
+  background-color: #d97706;
+}
+
+.readBtn {
+  position: absolute;
+  top: -1rem;
+  left: -3.3rem;
+  width: 7rem;
+  color: white;
+  font-weight: 900;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  background-color: #0ea5e9;
+  border: 0.2rem solid rgba(3, 106, 161, 0.628);
+}
+
+.readBtn:active {
+  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
+  background-color: #d97706;
+}

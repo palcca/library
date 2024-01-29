@@ -6,23 +6,25 @@ export function makeCard(Book, newLib) {
   const readBtn = document.createElement("button");
   cardButtons.classList.add("cardButtons");
   removeBtn.classList.add("removeBtn");
-  removeBtn.textContent = "X";
+  removeBtn.textContent = "x";
   readBtn.classList.add("readBtn");
   readBtn.textContent = "Olvas";
   const card = document.createElement("div");
   card.classList.add("card");
   const title = document.createElement("div");
-  title.textContent = Book.title;
+  title.textContent = Book.title.toUpperCase();
   title.style.textShadow = "rgba(0, 0, 0, 0.205)";
   const author = document.createElement("div");
-  author.textContent = Book.author;
+  author.textContent = Book.author.toUpperCase();
   const pages = document.createElement("div");
   pages.textContent = `${Book.pages} OLDAL`;
   const read = document.createElement("div");
-  read.textContent = Book.read;
+  read.textContent = Book.read.toUpperCase();
+  
 
   readBtn.addEventListener("click", () => {
     Book.readBook();
+    read.textContent = "OLVASTAD";
     layoutCards(newLib);
   });
 
@@ -38,8 +40,9 @@ export function makeCard(Book, newLib) {
   card.appendChild(cardButtons);
   cardButtons.appendChild(removeBtn);
 
-  if (Book.read != "OLVASVA") {
+  if (Book.read != "OLVASTAD") {
     cardButtons.appendChild(readBtn);
+    read.textContent = "NEM OLVASTAD"
   }
 
   return card;
@@ -109,15 +112,13 @@ export function showSections(myLibrary) {
     const Sectionlink = document.createElement("button");
     Sectionlink.textContent = myLibrary[i].name;
     sidebar.appendChild(Sectionlink);
-    Sectionlink.classList.add("btnNew");
+    Sectionlink.classList.add("sectionBtn");
 
     Sectionlink.addEventListener("click", () => {
       if (headerRight.firstChild) {
         headerRight.removeChild(headerRight.firstChild);
       }
-
       const newBtn = document.createElement("button");
-      // newBtn.classList.add("btnNew");
       newBtn.textContent = "ÚJ KÖNYV";
 
       newBtn.addEventListener("click", () => {
