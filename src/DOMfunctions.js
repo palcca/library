@@ -27,7 +27,7 @@ export function makeCard(Book, newLib) {
     });
 
     removeBtn.addEventListener("click", () => {
-        newLib.removeBookFromLibrary(Book);
+        newLib.removeBookFromSection(Book);
         layoutCards(newLib);
     });
 
@@ -84,7 +84,7 @@ export function newBookForm(newlib) {
             newBookPages.value = "";
             newBookRead.value = "no";
             dialog.close();
-            newlib.addBookToLibrary(newBook);
+            newlib.addBookToSection(newBook);
             layoutCards(newlib)
         } 
     });

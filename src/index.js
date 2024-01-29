@@ -20,7 +20,7 @@ function fill() {
 
     for (let i = 0; i < 5; i++) {
         let book = new Book("Origin", "J.L. Armentrout", 430, "no", i)
-        myLibrary[0].addBookToLibrary(book);
+        myLibrary[0].addBookToSection(book);
     }
 }
 

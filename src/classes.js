@@ -21,11 +21,11 @@ class Section {
         this.books = [];
     }
 
-    addBookToLibrary(Book) {
+    addBookToSection(Book) {
         this.books.push(Book)
     }
 
-    removeBookFromLibrary(Book) {
+    removeBookFromSection(Book) {
         this.books.splice(Book.index, 1);
     }
 }
