@@ -1,65 +1,68 @@
-*{
+* {
     font-family: sans-serif;
-    border:0px red solid;
-    font-size: min(max(0.7vh, 0.7vw) ,1.2rem);
+    border: 0px red solid;
+    font-size: min(max(0.5vh, 0.5vw), 1rem);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body, .container{
-    height:100%;
-    width:100%
+html,
+body,
+.container {
+    height: 100%;
+    width: 100%
 }
 
-body{
+body {
     background-color: rgba(0, 0, 0, 0.15);
 }
 
-.container{
+.container {
     display: inline-grid;
-    grid-template: 1fr 7fr / 1fr 10fr;
+    grid-template: 0fr 7fr / 1fr 10fr;
 }
 
-.header{
+.header {
     padding: 0.5rem;
     grid-template-columns: 1fr 1fr;
     background-color: white;
-    box-shadow: 0px 5px 5px rgb(0,0,0, 30%);
+    box-shadow: 0px 5px 5px rgb(0, 0, 0, 30%);
     grid-area: 1/2/2/3;
-    display: inline-grid;
-    border-bottom:3px solid rgba(3, 106, 161, 0.628);
+    display: grid;
+    border-bottom: 3px solid rgba(3, 106, 161, 0.628);
 }
 
-.headerRight{
+.headerRight {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.headerRight div{
+.headerRight div {
     display: flex;
     justify-content: flex-end;
 
 }
-.headerRight div img{
+
+.headerRight div img {
     width: 3rem;
 }
 
-.headerRight div img:first-child{
+.headerRight div img:first-child {
     width: 2rem;
-    margin-right:1rem;
+    margin-right: 1rem;
 }
 
-.headerRight div p{
+.headerRight div p {
     font-weight: 900;
     font-size: 1.3rem;
     padding: 1.3rem;
 
 }
 
-.headerRight div button{
+.headerRight div button {
     box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
     width: 7rem;
     margin: 1rem;
@@ -68,113 +71,114 @@ body{
     padding: 0.5rem;
     border-radius: 1rem;
     background-color: #0ea5e9;
-    border:0.2rem solid rgba(3, 106, 161, 0.628);
+    border: 0.2rem solid rgba(3, 106, 161, 0.628);
 
 }
 
-.headerRight div button:active{
+.headerRight div button:active {
     box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-    background-color:  #d97706;
+    background-color: #d97706;
 }
 
 
-.headerLeft{
+.headerLeft {
     padding-left: 2rem;
     padding-right: 0rem;
     display: flex;
     flex-direction: column;
-    grid-template: 1fr 1fr /  1fr 1fr 1fr;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
 
 }
 
-.userInfo{
+.userInfo {
     display: flex;
     width: 80%;
     align-items: flex-start;
 }
 
-.userInfo div h2{
-    margin-bottom:1rem;
+.userInfo div h2 {
+    margin-bottom: 1rem;
     font-size: 2rem;
 }
 
-.userInfo div p{
+.userInfo div p {
     font-size: 1.3rem;
-    margin-top:1rem;
+    margin-top: 1rem;
 }
 
-.userInfo div{
-    margin-left:1rem;
+.userInfo div {
+    margin-left: 1rem;
 }
 
-.searchbar{
+.searchbar {
     margin-top: 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.searchbar img{
+.searchbar img {
     width: 1.5rem;
     margin-right: 1rem;
 
 }
 
-.searchbar input{
+.searchbar input {
     border-radius: 2rem;
     background-color: lightgrey;
     height: 1.7rem;
     width: 90%;
-    padding:0.5rem;
+    padding: 0.5rem;
 }
 
-.userInfo .miniPic{
+.userInfo .miniPic {
     align-self: center;
-    width:4rem;
+    width: 4rem;
     height: 4rem;
-    margin-left:1rem;
+    margin-left: 1rem;
 
-   
+
 }
 
-.sidebar{
+.sidebar {
     border-right: 10px solid rgba(3, 106, 161, 0.628);
     color: white;
-    background-color:#0ea5e9;
+    background-color: #0ea5e9;
     grid-area: 1/1/3/2;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar button{
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 1rem;
 }
 
 
 
-.sidebar h2{
+.sidebar h2 {
     border-radius: 0.4rem;
     box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding:0.1rem;
+    padding: 0.1rem;
     margin: 1rem 1rem 0rem 1rem;
     border: 0.2rem solid white;
     font-size: 1.6rem;
 }
 
-.sidebar div{
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.8);
-    padding-top: 1rem;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.sidebar div:hover{
+.sidebar div:hover {
     text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
-.sidebar div:nth-child(8){
+.sidebar div:nth-child(8) {
     margin-top: 2rem;
 }
-.sidebar div img{
+
+.sidebar div img {
     box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    border:3px solid white;
+    border: 3px solid white;
     background-color: white;
     margin-right: 1rem;
     margin-left: 1rem;
@@ -183,7 +187,7 @@ body{
 }
 
 
-.library{
+.library {
     grid-area: 2/2/3/3;
     padding: 2rem 2rem 2rem 2rem;
     display: inline-grid;
@@ -194,8 +198,8 @@ body{
 }
 
 
-.card{
-    
+.card {
+
     letter-spacing: 0.3rem;
     font-weight: 900;
     line-height: 2.5rem;
@@ -207,12 +211,12 @@ body{
     align-items: center;
     padding: 1.8rem;
     border-radius: 1rem;
-    background: linear-gradient(to right, #d97706 0%, #d97706 3%, rgba(14, 164, 233, 0.01) 3% );
-    border:0.0rem solid rgba(3, 106, 161, 0.628);
+    background: linear-gradient(to right, #d97706 0%, #d97706 3%, rgba(14, 164, 233, 0.01) 3%);
+    border: 0.0rem solid rgba(3, 106, 161, 0.628);
     background-color: rgba(14, 164, 233, 0.126);
 }
 
-.cardButtons{
+.cardButtons {
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -228,17 +232,17 @@ body{
     padding: 0.3rem;
     border-radius: 1rem;
     background-color: #0ea5e9;
-    border:0.2rem solid rgba(3, 106, 161, 0.628);
+    border: 0.2rem solid rgba(3, 106, 161, 0.628);
 }
 
 .removeBtn:active {
     box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-    background-color:  #d97706; 
+    background-color: #d97706;
 }
 
-.readBtn{
+.readBtn {
     position: absolute;
-    top:-2rem;
+    top: -2rem;
     left: -3.5rem;
     width: 7rem;
     color: white;
@@ -246,44 +250,45 @@ body{
     padding: 0.3rem;
     border-radius: 1rem;
     background-color: #0ea5e9;
-    border:0.2rem solid rgba(3, 106, 161, 0.628);
+    border: 0.2rem solid rgba(3, 106, 161, 0.628);
 }
-.readBtn:active{
+
+.readBtn:active {
     box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-    background-color:  #d97706;
+    background-color: #d97706;
 }
 
 
-.cardText{
+.cardText {
     gap: 1.3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow:hidden;
+    overflow: hidden;
 
 }
 
-.card:hover{
+.card:hover {
     position: relative;
-    top: -5px; 
+    top: -5px;
     left: -5px;
     box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
     border-color: #d97706;
 }
 
-.card img{
-    width:2rem;
+.card img {
+    width: 2rem;
     margin-top: 1rem;
 }
 
-.cardicons{
+.cardicons {
     align-self: flex-end
 }
 
 dialog {
     box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 65%);
-    border:0.5rem solid  #d97706 ;
-    border-radius:5%;
+    border: 0.5rem solid #d97706;
+    border-radius: 5%;
     width: 30rem;
     height: 20rem;
     position: absolute;
@@ -292,28 +297,28 @@ dialog {
 
 }
 
-.formContainer{
+.formContainer {
 
-    background: linear-gradient(to right, #d97706 0%, #d97706 2%, white 3% );
+    background: linear-gradient(to right, #d97706 0%, #d97706 2%, white 3%);
     padding: 3rem;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
 }
 
-.formContainer div{
+.formContainer div {
     display: flex;
     justify-content: space-between;
 }
 
-.formContainer div p{
+.formContainer div p {
     font-weight: 600;
 }
 
-.formContainer input{
+.formContainer input {
     border-radius: 0.5rem;
     padding: 0.3rem;
     font-weight: bold;
@@ -323,7 +328,7 @@ dialog {
     background-color: rgba(0, 0, 0, 0.214);
 }
 
-.newSave{
+.newSave {
     box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
     width: 7rem;
     color: white;
@@ -331,15 +336,15 @@ dialog {
     padding: 0.5rem;
     border-radius: 1rem;
     background-color: #0ea5e9;
-    border:0.2rem solid rgba(3, 106, 161, 0.628);
+    border: 0.2rem solid rgba(3, 106, 161, 0.628);
 }
 
-.newSave:active{
+.newSave:active {
     box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-    background-color:  #d97706; 
+    background-color: #d97706;
 }
 
-.btnCancel{
+.btnCancel, .btnNew {
     box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
     width: 7rem;
     color: white;
@@ -347,14 +352,14 @@ dialog {
     padding: 0.5rem;
     border-radius: 1rem;
     background-color: #0ea5e9;
-    border:0.2rem solid rgba(3, 106, 161, 0.628);
+    border: 0.2rem solid rgba(3, 106, 161, 0.628);
 }
 
-.btnCancel:active{
+.btnCancel:active, .btnNew:active {
     box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-    background-color:  #d97706; 
+    background-color: #d97706;
 }
 
-::backdrop{
+::backdrop {
     background-color: rgba(0, 0, 0, 0.299);
 }

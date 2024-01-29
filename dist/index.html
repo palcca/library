@@ -1,71 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Könyvtár</title>
 </head>
+
 <body>
-<dialog>
-    <div class="formContainer">
-    <div>
-        <p>Könyv Címe:</p>
-        <input class="newTitle" type="text" name="title" minlength="1">
-    </div>
-    <div>
-        <p>Szerző:</p>
-        <input class="newAuthor" type="text" name="author" minlength="1">
-    </div>
-    <div>
-        <p>Oldalak száma:</p>
-        <input class="newPages" type="text" name="pages" min="1">
-    </div>
-    <div>
-        <p>Olvastad-e:</p>
-        <input class="newRead" type="text" name="read" minlength="1">
-    </div>
-    <div>
-        <button class="btnCancel">Mégse</button>
-        <button class="newSave">Mentés</button>
-    </div>
+    <dialog>
+        <div class="formContainer">
+            <div>
+                <p>Könyv Címe:</p>
+                <input class="newTitle" type="text" name="title" minlength="1">
+            </div>
+            <div>
+                <p>Szerző:</p>
+                <input class="newAuthor" type="text" name="author" minlength="1">
+            </div>
+            <div>
+                <p>Oldalak száma:</p>
+                <input class="newPages" type="text" name="pages" min="1">
+            </div>
+            <div>
+                <p>Olvastad-e:</p>
+                <input class="newRead" type="text" name="read" minlength="1">
+            </div>
+            <div>
+                <button class="btnCancel">Mégse</button>
+                <button class="newSave">Mentés</button>
+            </div>
 
-    </div>
-</dialog>
+        </div>
+    </dialog>
     <div class="container">
-
         <div class="header">
-            
             <div class="headerLeft">
-                <div class="searchbar">
-                    <img src="magnify.svg">
-                    <input type="text">
-                </div>
-                <div class="userInfo">
-                    <div>
-                        <p>-</p>
-                        <h2>Library</h2>
-                    </div>
-                </div>
+                <h2 class="sectionName"></h2>
             </div>
 
             <div class="headerRight">
-                <div>
-                    <p>Library</p>
-                </div>
-                <div>
-                    <button class="btnNew" type="button">ÚJ KÖNYV</button>
-                </div>
             </div>
-
         </div>
         <div class="sidebar">
             <h2>MYLIB</h2>
         </div>
-        <div class="library">
-        </div>
-    </div>    
-<script src="bundle.js">
+        <div class="library"></div>
+    </div>
+    <script src="bundle.js">
 
-</script>
+    </script>
 </body>
+
 </html>

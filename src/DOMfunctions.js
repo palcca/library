@@ -1,4 +1,4 @@
-import { Book, Section } from "./classes.js"; 
+import { Book, Section } from "./classes.js";
 
 export function makeCard(Book, newLib) {
     let cardButtons = document.createElement("div");
@@ -86,6 +86,32 @@ export function newBookForm(newlib) {
             dialog.close();
             newlib.addBookToSection(newBook);
             layoutCards(newlib)
-        } 
+        }
     });
+}
+
+export function showSections(myLibrary) {
+    const sidebar = document.querySelector(".sidebar");
+    const sectionName = document.querySelector(".sectionName");
+    const headerRight = document.querySelector(".headerRight");
+    for (let i = 0; i < myLibrary.length; i++) {
+        //dom for showing sections (name and description)
+        const Sectionlink = document.createElement("button");
+        Sectionlink.textContent = myLibrary[i].name;
+        sidebar.appendChild(Sectionlink);
+
+        Sectionlink.addEventListener("click", () => {
+            if (headerRight.firstChild){headerRight.removeChild(headerRight.firstChild)};
+            const newBtn = document.createElement("button");
+            newBtn.classList.add("btnNew");
+            newBtn.textContent = "ÚJ KÖNYV";
+
+            newBtn.addEventListener("click", () => {
+                newBookForm(myLibrary[i]);
+            });
+            headerRight.appendChild(newBtn);
+            sectionName.textContent = myLibrary[i].name;
+            layoutCards(myLibrary[i]);
+        });
+    }
 }

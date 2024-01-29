@@ -18,6 +18,7 @@ class Section {
     constructor(name, description) {
         this.name = name;
         this.description = description;
+        this.index = 0;
         this.books = [];
     }
 
