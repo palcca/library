@@ -254,7 +254,7 @@ export function editSectionForm(myLibrary, Section) {
     } else {
 
       Section.name = newTitleinput.value.toUpperCase();
-      Section.description = descriptionInput.value.toUpperCase();
+      Section.description = descriptionInput.value;
       const sidebar = document.querySelector(".sidebar");
       for (let i = myLibrary.length + 1; i > 1; i--) {
         sidebar.removeChild(sidebar.lastChild);
@@ -275,20 +275,23 @@ export function clearSectionBar(myLibrary) {
 export function showSections(myLibrary) {
   const sidebar = document.querySelector(".sidebar");
   const sectionName = document.querySelector(".sectionName");
+  const sectionDescription = document.querySelector("#sectionDescription")
   const headerRight = document.querySelector(".headerRight");
   const dialog = document.querySelector("dialog");
-
   for (let i = 0; i < myLibrary.length; i++) {
     const Sectionlink = document.createElement("button");
     myLibrary[i].index = i;
     Sectionlink.textContent = myLibrary[i].name;
     sidebar.appendChild(Sectionlink);
+    
     Sectionlink.addEventListener("click", () => {
       const focusedBtn = document.querySelector(".focusedBtn");
+      
       if (focusedBtn) {
         focusedBtn.classList.remove("focusedBtn")
       }
       Sectionlink.classList.add("focusedBtn");
+
 
       while (headerRight.firstChild) {
         headerRight.removeChild(headerRight.firstChild);
@@ -303,13 +306,18 @@ export function showSections(myLibrary) {
       });
       const newBtn = document.createElement("button");
       newBtn.textContent = "ÚJ KÖNYV";
-
+      
       newBtn.addEventListener("click", () => {
         newBookForm(myLibrary[i]);
       });
       headerRight.appendChild(newBtn);
+      sectionDescription.textContent = myLibrary[i].description;
       sectionName.textContent = myLibrary[i].name;
       layoutCards(myLibrary[i]);
     });
   }
+
+  
+
+
 }
