@@ -36,7 +36,11 @@ export function makeCard(Book, Section) {
   card.appendChild(author);
   card.appendChild(cardButtons);
   card.appendChild(author);
-  cardButtons.appendChild(removeBtn);
+  
+  if (!(Section.name == "searched")){
+    cardButtons.appendChild(removeBtn);
+  }
+  
   cardButtons.appendChild(readBtn);
 
   if (Book.read != "OLVASTAD") {

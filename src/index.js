@@ -54,7 +54,7 @@ newSectionBtn.addEventListener("click", () => {
 });
 
 function searchForTitle(searchText) {
-  let filteredArray = new Section ("", "");
+  let filteredArray = new Section ("searched", "");
   for (let i = 0; i < myLibrary.length; i++) {
     for (let y = 0; y < myLibrary[i].books.length; y++) {
       let a = myLibrary[i].books[y].title.toUpperCase();

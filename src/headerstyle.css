@@ -83,17 +83,16 @@
 #sectionDescription {
   border-radius: 1rem;;
   padding: 0.2rem;
-  height: 2.4rem;
-  max-width: 70rem;
+  height: 2rem;
+  max-width: 30rem;
   text-wrap: nowrap;  
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bolder;
   color: #0ea5e9;
   text-align: center;
   align-self: center;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
