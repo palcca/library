@@ -17,30 +17,20 @@ import { Book, Section } from "./classes.js";
 const myLibrary = [];
 const dialog = document.querySelector("dialog");
 
-// const btnNew = document.querySelector(".btnNew");
-
+//fill with some data
 for (let i = 0; i < 5; i++) {
   myLibrary[i] = new Section(`${i}. fantasy`, "leirasa");
-}
-
-/* btnNew.addEventListener("click", () => {
-    newBookForm(myLibrary[0]);
-}); */
-
-function fill() {
-  for (let i = 0; i < 15; i++) {
+  for (let y = 0; y < 15; y++) {
     const book = new Book(
-      i + ". címcíyhdkajfhkaldfhlaskjdfh ",
+      y + ". címcíyhdkajfhkaldfhlaskjdfh ",
       "J.L. Armenout",
       430,
       "no",
       i
     );
-    myLibrary[0].addBookToSection(book);
+    myLibrary[i].addBookToSection(book);
   }
 }
-
-fill();
 
 showSections(myLibrary);
 

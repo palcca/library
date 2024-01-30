@@ -187,7 +187,6 @@ export function newSectionForm(myLibrary) {
     if (newTitleinput.value == "") {
       alert("Kérlek add meg a szekció nevét!");
     } else {
-
       const newSection = new Section(
         newTitleinput.value.toUpperCase(),
         descriptionInput.value
@@ -203,7 +202,7 @@ export function newSectionForm(myLibrary) {
       dialog.close();
     }
   });
-};
+}
 export function clearSectionBar(myLibrary) {
   const sidebar = document.querySelector(".sidebar");
   for (let i = myLibrary.length; i > 1; i--) {
@@ -220,9 +219,8 @@ export function showSections(myLibrary) {
     const Sectionlink = document.createElement("button");
     Sectionlink.textContent = myLibrary[i].name;
     sidebar.appendChild(Sectionlink);
-    Sectionlink.classList.add("sectionBtn");
-
     Sectionlink.addEventListener("click", () => {
+      
       if (headerRight.firstChild) {
         headerRight.removeChild(headerRight.firstChild);
       }
@@ -235,6 +233,8 @@ export function showSections(myLibrary) {
       headerRight.appendChild(newBtn);
       sectionName.textContent = myLibrary[i].name;
       layoutCards(myLibrary[i]);
+
+
     });
   }
 }
