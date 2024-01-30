@@ -1,7 +1,7 @@
 .header {
   grid-template-columns: 1fr 1fr;
   background-color: white;
-  box-shadow: 0px 5px 5px rgb(0, 0, 0, 30%);
+  box-shadow: 0rem 1rem 1rem rgb(0, 0, 0, 30%);
   grid-area: 1/2/2/3;
   display: grid;
   border-bottom: 0.3rem solid rgba(3, 106, 161, 0.628);

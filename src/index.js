@@ -20,7 +20,7 @@ const dialog = document.querySelector("dialog");
 //fill with some data
 for (let i = 0; i < 5; i++) {
   myLibrary[i] = new Section(`${i}. fantasy`, "leirasa");
-  for (let y = 0; y < 15; y++) {
+  for (let y = 0; y < 150; y++) {
     const book = new Book(
       y + ". címcíyhdkajfhkaldfhlaskjdfh ",
       "J.L. Armenout",

@@ -34,9 +34,10 @@ export function makeCard(Book, Section) {
 
   card.appendChild(title);
   card.appendChild(author);
-  card.appendChild(pages);
-  card.appendChild(read);
+  /*card.appendChild(pages);
+  card.appendChild(read);*/
   card.appendChild(cardButtons);
+  card.appendChild(author);
   cardButtons.appendChild(removeBtn);
 
   if (Book.read != "OLVASTAD") {
@@ -54,7 +55,7 @@ export function layoutCards(Section) {
     LIBRARY.removeChild(LIBRARY.firstChild);
   }
 
-  for (let i = 0; i < Section.books.length; i++) {
+  for (let i = Section.books.length-1; i>=0; i--) {
     const content = makeCard(Section.books[i], Section);
     Section.books[i].index = i;
     LIBRARY.appendChild(content);
@@ -233,6 +234,7 @@ export function showSections(myLibrary) {
       headerRight.appendChild(newBtn);
       sectionName.textContent = myLibrary[i].name;
       layoutCards(myLibrary[i]);
+
 
 
     });

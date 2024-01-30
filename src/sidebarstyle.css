@@ -20,6 +20,8 @@
   width: 80%;
   display: grid;
   place-content: center;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .sidebar h2 {
