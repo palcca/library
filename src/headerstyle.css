@@ -40,12 +40,11 @@
   flex-direction: column;
   grid-template: 1fr 1fr / 1fr 1fr 1fr;
   place-content: center;
-  /*background-color: rgba(175, 6, 217, 0.3);*/
 }
 
 .sectionName {
   -webkit-text-stroke: 0.13rem rgba(3, 106, 161, 0.628);
-  /*text-shadow: 0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.6);*/
+
   font-size: 3rem;
   font-weight: bolder;
   color: #0ea5e9;

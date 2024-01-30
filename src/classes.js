@@ -7,9 +7,9 @@ class Book {
     this.index = index;
   }
 
-  readBook (){
+  readBook() {
     this.read = "OLVASTAD";
-  };
+  }
 }
 
 class Section {

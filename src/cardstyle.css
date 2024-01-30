@@ -14,7 +14,6 @@
     #d97706 1%,
     rgba(14, 164, 233, 0.01) 1.5%
   );
-  /*border: 0rem solid rgba(3, 106, 161, 0.628);*/
   background-color: rgba(175, 6, 217, 0.15);
 }
 
@@ -41,8 +40,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   display: grid;
-  /*border-bottom: 2px solid rgba(14, 164, 233, 0.5);
-  background-color: rgba(255, 255, 255, 0.33);*/
 }
 
 .card > div:nth-child(2) {
@@ -55,16 +52,16 @@
   justify-content: space-between;
 }
 
-.card > div:nth-child(3){
-  border-top:2px solid #0ea5e9;
+.card > div:nth-child(3) {
+  border-top: 2px solid #0ea5e9;
   font-style: italic;
   color: rgba(0, 0, 0, 0.568);
   padding-left: 2rem;
 }
 
 .removeBtn {
+  margin-right: 0.6rem;
   font-size: 2rem;
-  width: 2rem;
   color: #0ea5e9;
   background-color: rgba(175, 6, 217, 0);
   font-weight: 900;
@@ -75,21 +72,8 @@
 }
 
 .readBtn {
-  width: 7rem;
-  color: white;
+  font-size: 3rem;
+  color: green;
+  background-color: rgba(255, 255, 255, 0);
   font-weight: 900;
-  padding: 0.3rem;
-  border-radius: 1rem;
-  background-color: #0ea5e9;
-  border: 0.2rem solid rgba(3, 106, 161, 0.628);
-}
-
-.readBtn:active {
-  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-  background-color: #d97706;
-}
-
-.bookTitle {
-}
-.bookAuthor {
 }

@@ -8,7 +8,7 @@ export function makeCard(Book, Section) {
   removeBtn.classList.add("removeBtn");
   removeBtn.textContent = "x";
   readBtn.classList.add("readBtn");
-  readBtn.textContent = "Olvas";
+  readBtn.textContent = "\u2713";
   const card = document.createElement("div");
   card.classList.add("card");
   const title = document.createElement("div");
@@ -34,14 +34,13 @@ export function makeCard(Book, Section) {
 
   card.appendChild(title);
   card.appendChild(author);
-  /*card.appendChild(pages);
-  card.appendChild(read);*/
   card.appendChild(cardButtons);
   card.appendChild(author);
   cardButtons.appendChild(removeBtn);
+  cardButtons.appendChild(readBtn);
 
   if (Book.read != "OLVASTAD") {
-    cardButtons.appendChild(readBtn);
+    readBtn.style.color = "red";
     read.textContent = "NEM OLVASTAD";
   }
 
@@ -55,7 +54,7 @@ export function layoutCards(Section) {
     LIBRARY.removeChild(LIBRARY.firstChild);
   }
 
-  for (let i = Section.books.length-1; i>=0; i--) {
+  for (let i = Section.books.length - 1; i >= 0; i--) {
     const content = makeCard(Section.books[i], Section);
     Section.books[i].index = i;
     LIBRARY.appendChild(content);
@@ -221,7 +220,6 @@ export function showSections(myLibrary) {
     Sectionlink.textContent = myLibrary[i].name;
     sidebar.appendChild(Sectionlink);
     Sectionlink.addEventListener("click", () => {
-      
       if (headerRight.firstChild) {
         headerRight.removeChild(headerRight.firstChild);
       }
@@ -234,9 +232,6 @@ export function showSections(myLibrary) {
       headerRight.appendChild(newBtn);
       sectionName.textContent = myLibrary[i].name;
       layoutCards(myLibrary[i]);
-
-
-
     });
   }
 }
