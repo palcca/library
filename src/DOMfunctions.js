@@ -1,6 +1,6 @@
 import { Book, Section } from "./classes.js";
 
-export function makeCard(Book, newLib) {
+export function makeCard(Book, Section) {
   const cardButtons = document.createElement("div");
   const removeBtn = document.createElement("button");
   const readBtn = document.createElement("button");
@@ -20,17 +20,16 @@ export function makeCard(Book, newLib) {
   pages.textContent = `${Book.pages} OLDAL`;
   const read = document.createElement("div");
   read.textContent = Book.read.toUpperCase();
-  
 
   readBtn.addEventListener("click", () => {
     Book.readBook();
     read.textContent = "OLVASTAD";
-    layoutCards(newLib);
+    layoutCards(Section);
   });
 
   removeBtn.addEventListener("click", () => {
-    newLib.removeBookFromSection(Book);
-    layoutCards(newLib);
+    Section.removeBookFromSection(Book);
+    layoutCards(Section);
   });
 
   card.appendChild(title);
@@ -42,47 +41,87 @@ export function makeCard(Book, newLib) {
 
   if (Book.read != "OLVASTAD") {
     cardButtons.appendChild(readBtn);
-    read.textContent = "NEM OLVASTAD"
+    read.textContent = "NEM OLVASTAD";
   }
 
   return card;
 }
 
-export function layoutCards(newLib) {
+export function layoutCards(Section) {
   const LIBRARY = document.querySelector(".library");
 
   while (LIBRARY.firstChild) {
     LIBRARY.removeChild(LIBRARY.firstChild);
   }
 
-  for (let i = 0; i < newLib.books.length; i++) {
-    const content = makeCard(newLib.books[i], newLib);
-    newLib.books[i].index = i;
+  for (let i = 0; i < Section.books.length; i++) {
+    const content = makeCard(Section.books[i], Section);
+    Section.books[i].index = i;
     LIBRARY.appendChild(content);
   }
 }
 
-export function newBookForm(newlib) {
+export function newBookForm(Section) {
   const dialog = document.querySelector("dialog");
-  const btnCancel = document.querySelector(".btnCancel");
-  const btnSave = document.querySelector(".newSave");
+
+  while (dialog.firstChild) {
+    dialog.removeChild(dialog.lastChild);
+  }
+
+  //form elements
+  const formContainer = document.createElement("div");
+  formContainer.classList.add("formContainer");
+  dialog.appendChild(formContainer);
+  const titleContainer = document.createElement("div");
+  formContainer.appendChild(titleContainer);
+  const titleContainerP = document.createElement("p");
+  titleContainerP.textContent = "Könyv Címe:";
+  titleContainer.appendChild(titleContainerP);
+  const newTitleinput = document.createElement("input", "type=text");
+  newTitleinput.classList.add("newTitle");
+  titleContainer.appendChild(newTitleinput);
+  const authorContainer = document.createElement("div");
+  formContainer.appendChild(authorContainer);
+  const authorContainerP = document.createElement("p");
+  authorContainerP.textContent = "Szerző:";
+  authorContainer.appendChild(authorContainerP);
+  const newAuthorinput = document.createElement("input", "type=text");
+  newAuthorinput.classList.add("newAuthor");
+  authorContainer.appendChild(newAuthorinput);
+  const pagesContainer = document.createElement("div");
+  formContainer.appendChild(pagesContainer);
+  const pagesContainerP = document.createElement("p");
+  pagesContainerP.textContent = "Oldalszám:";
+  pagesContainer.appendChild(pagesContainerP);
+  const newPagesinput = document.createElement("input", "type=number");
+  newPagesinput.classList.add("newPages");
+  pagesContainer.appendChild(newPagesinput);
+  const formBtnsCont = document.createElement("div");
+  formContainer.appendChild(formBtnsCont);
+  const formCancelBtn = document.createElement("button");
+  formCancelBtn.classList.add("btnCancel");
+  formCancelBtn.textContent = "Mégse";
+  formBtnsCont.appendChild(formCancelBtn);
+  const formSaveBtn = document.createElement("button");
+  formSaveBtn.classList.add("btnSave");
+  formSaveBtn.textContent = "Mentés";
+  formBtnsCont.appendChild(formSaveBtn);
+
   dialog.showModal();
 
-  btnCancel.addEventListener("click", () => {
+  formCancelBtn.addEventListener("click", () => {
     dialog.close();
   });
 
-  btnSave.addEventListener("click", () => {
+  formSaveBtn.addEventListener("click", () => {
     const newBookTitle = document.querySelector(".newTitle");
     const newBookAuthor = document.querySelector(".newAuthor");
     const newBookPages = document.querySelector(".newPages");
-    const newBookRead = document.querySelector(".newRead");
 
     if (
       newBookTitle.value == "" ||
       newBookAuthor.value == "" ||
-      newBookPages.value < 1 ||
-      newBookRead.value == ""
+      newBookPages.value < 1
     ) {
       alert("Az összes mező kitöltése kötelező!");
     } else {
@@ -90,24 +129,93 @@ export function newBookForm(newlib) {
         newBookTitle.value.toUpperCase(),
         newBookAuthor.value.toUpperCase(),
         newBookPages.value,
-        newBookRead.value.toUpperCase(),
-        newlib.books.length
+        "NEM OLVASTAD",
+        Section.books.length
       );
       newBookAuthor.value = "";
       newBookTitle.value = "";
       newBookPages.value = "";
-      newBookRead.value = "no";
       dialog.close();
-      newlib.addBookToSection(newBook);
-      layoutCards(newlib);
+      Section.addBookToSection(newBook);
+      layoutCards(Section);
     }
   });
+}
+
+export function newSectionForm(myLibrary) {
+  const dialog = document.querySelector("dialog");
+
+  while (dialog.firstChild) {
+    dialog.removeChild(dialog.lastChild);
+  }
+
+  const formContainer = document.createElement("div");
+  formContainer.classList.add("formContainer");
+  dialog.appendChild(formContainer);
+  const titleContainer = document.createElement("div");
+  formContainer.appendChild(titleContainer);
+  const titleContainerP = document.createElement("p");
+  titleContainerP.textContent = "Szekció neve: ";
+  titleContainer.appendChild(titleContainerP);
+  const newTitleinput = document.createElement("input", "type=text");
+  newTitleinput.classList.add("newTitle");
+  titleContainer.appendChild(newTitleinput);
+  const descriptionContainer = document.createElement("div");
+  formContainer.appendChild(descriptionContainer);
+  const sectionDescription = document.createElement("p");
+  sectionDescription.textContent = "Rövid Leírás";
+  descriptionContainer.appendChild(sectionDescription);
+  const descriptionInput = document.createElement("textarea");
+  descriptionInput.classList.add("sectionDescription");
+  descriptionContainer.appendChild(descriptionInput);
+  const formBtnsCont = document.createElement("div");
+  formContainer.appendChild(formBtnsCont);
+  const formCancelBtn = document.createElement("button");
+  formCancelBtn.classList.add("btnCancel");
+  formCancelBtn.textContent = "Mégse";
+  formBtnsCont.appendChild(formCancelBtn);
+  const formSaveBtn = document.createElement("button");
+  formSaveBtn.classList.add("btnSave");
+  formSaveBtn.textContent = "Mentés";
+  formBtnsCont.appendChild(formSaveBtn);
+
+  formCancelBtn.addEventListener("click", () => {
+    dialog.close();
+  });
+
+  formSaveBtn.addEventListener("click", () => {
+    if (newTitleinput.value == "") {
+      alert("Kérlek add meg a szekció nevét!");
+    } else {
+
+      const newSection = new Section(
+        newTitleinput.value.toUpperCase(),
+        descriptionInput.value
+      );
+
+      console.log(myLibrary);
+      newSection.index = myLibrary.length;
+      descriptionInput.value = "";
+      newTitleinput.value = "";
+      myLibrary.push(newSection);
+      clearSectionBar(myLibrary);
+      showSections(myLibrary);
+      dialog.close();
+    }
+  });
+};
+export function clearSectionBar(myLibrary) {
+  const sidebar = document.querySelector(".sidebar");
+  for (let i = myLibrary.length; i > 1; i--) {
+    sidebar.removeChild(sidebar.lastChild);
+  }
 }
 
 export function showSections(myLibrary) {
   const sidebar = document.querySelector(".sidebar");
   const sectionName = document.querySelector(".sectionName");
   const headerRight = document.querySelector(".headerRight");
+
   for (let i = 0; i < myLibrary.length; i++) {
     const Sectionlink = document.createElement("button");
     Sectionlink.textContent = myLibrary[i].name;

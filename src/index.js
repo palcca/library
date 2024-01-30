@@ -9,10 +9,13 @@ import {
   layoutCards,
   newBookForm,
   showSections,
+  newSectionForm,
+  clearSectionBar
 } from "./DOMfunctions.js";
 import { Book, Section } from "./classes.js";
 
 const myLibrary = [];
+const dialog = document.querySelector("dialog");
 
 // const btnNew = document.querySelector(".btnNew");
 
@@ -40,3 +43,10 @@ function fill() {
 fill();
 
 showSections(myLibrary);
+
+const newSectionBtn = document.querySelector("#newSectionBtn");
+newSectionBtn.addEventListener("click", () => {
+  newSectionForm(myLibrary);
+  dialog.showModal();
+
+});

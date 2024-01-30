@@ -1,5 +1,16 @@
+dialog {
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 65%);
+  /*border: 0.5rem solid #d97706;*/
+  border-radius: 5%;
+  width: 40rem;
+  height: 20rem;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
 .formContainer {
-  background: linear-gradient(to right, #d97706 0%, #d97706 2%, white 3%);
+  /*background: linear-gradient(to right, #d97706 0%, #d97706 2%, white 3%);*/
   padding: 3rem;
   height: 100%;
   width: 100%;
@@ -15,35 +26,22 @@
 }
 
 .formContainer div p {
+  font-size: 1.6rem;
   font-weight: 600;
 }
 
-.formContainer input {
+.formContainer input, .sectionDescription {
   border-radius: 0.5rem;
   padding: 0.3rem;
   font-weight: bold;
   text-align: center;
   margin-left: 2rem;
-  width: 12rem;
+  width: 20rem;
   background-color: rgba(0, 0, 0, 0.214);
+  font-size: 1.6rem;
 }
 
-.newSave {
-  box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
-  width: 7rem;
-  color: white;
-  font-weight: 900;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  background-color: #0ea5e9;
-  border: 0.2rem solid rgba(3, 106, 161, 0.628);
-}
-
-.newSave:active {
-  box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
-  background-color: #d97706;
-}
-
+.btnSave,
 .btnCancel {
   box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
   width: 7rem;
@@ -53,9 +51,20 @@
   border-radius: 1rem;
   background-color: #0ea5e9;
   border: 0.2rem solid rgba(3, 106, 161, 0.628);
+  font-size: 1.4rem;
 }
 
+.btnSave:active,
 .btnCancel:active {
   box-shadow: 0.15rem 0.15rem 0.15rem inset rgba(3, 106, 161, 0.628);
   background-color: #d97706;
+}
+
+::backdrop{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.sectionDescription {
+  resize: none;
+  height: 5rem;
 }
