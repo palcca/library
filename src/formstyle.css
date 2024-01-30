@@ -1,15 +1,18 @@
 dialog {
   box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 65%);
   border-radius: 5%;
-  width: 40rem;
-  height: 20rem;
+  width: 50rem;
+  height: 23rem;
   position: absolute;
   top: 10%;
   left: 25%;
+  background-color: rgb(185, 185, 185);
+  border: 3px solid #d97706;
 }
 
 .formContainer {
-  padding: 3rem;
+  background-color: rgba(175, 6, 217, 0.15);
+  padding: 3rem 3rem 2rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -24,7 +27,7 @@ dialog {
 }
 
 .formContainer div p {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -34,22 +37,22 @@ dialog {
   font-weight: bold;
   text-align: center;
   margin-left: 2rem;
-  width: 20rem;
+  width: 25rem;
   background-color: rgba(0, 0, 0, 0.214);
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .btnSave,
 .btnCancel {
   box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.4);
-  width: 7rem;
+  width: 9rem;
   color: white;
   font-weight: 900;
   padding: 0.5rem;
   border-radius: 1rem;
   background-color: #0ea5e9;
   border: 0.2rem solid rgba(3, 106, 161, 0.628);
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .btnSave:active,
@@ -64,5 +67,5 @@ dialog {
 
 .sectionDescription {
   resize: none;
-  height: 5rem;
+  height: 8rem;
 }

@@ -18,9 +18,9 @@ const myLibrary = [];
 const dialog = document.querySelector("dialog");
 
 //fill with some data
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   myLibrary[i] = new Section(`${i}. fantasy`, "leirasa");
-  for (let y = 0; y < 150; y++) {
+  for (let y = 0; y < 20; y++) {
     const book = new Book(
       y + ". címcíyhdkajfhkaldfhlaskjdfh ",
       "J.L. Armenout",

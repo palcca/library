@@ -203,6 +203,68 @@ export function newSectionForm(myLibrary) {
     }
   });
 }
+
+export function editSectionForm(myLibrary, Section) {
+  const dialog = document.querySelector("dialog");
+
+  while (dialog.firstChild) {
+    dialog.removeChild(dialog.lastChild);
+  }
+
+  const formContainer = document.createElement("div");
+  formContainer.classList.add("formContainer");
+  dialog.appendChild(formContainer);
+  const titleContainer = document.createElement("div");
+  formContainer.appendChild(titleContainer);
+  const titleContainerP = document.createElement("p");
+  titleContainerP.textContent = "Szekció neve: ";
+  titleContainer.appendChild(titleContainerP);
+  const newTitleinput = document.createElement("input", "type=text");
+  newTitleinput.classList.add("newTitle");
+  titleContainer.appendChild(newTitleinput);
+  const descriptionContainer = document.createElement("div");
+  formContainer.appendChild(descriptionContainer);
+  const sectionDescription = document.createElement("p");
+  sectionDescription.textContent = "Rövid Leírás";
+  descriptionContainer.appendChild(sectionDescription);
+  const descriptionInput = document.createElement("textarea");
+  descriptionInput.classList.add("sectionDescription");
+  descriptionContainer.appendChild(descriptionInput);
+  const formBtnsCont = document.createElement("div");
+  formContainer.appendChild(formBtnsCont);
+  const formCancelBtn = document.createElement("button");
+  formCancelBtn.classList.add("btnCancel");
+  formCancelBtn.textContent = "Mégse";
+  formBtnsCont.appendChild(formCancelBtn);
+  const formSaveBtn = document.createElement("button");
+  formSaveBtn.classList.add("btnSave");
+  formSaveBtn.textContent = "Mentés";
+  formBtnsCont.appendChild(formSaveBtn);
+
+  formCancelBtn.addEventListener("click", () => {
+    dialog.close();
+  });
+
+  descriptionInput.value = Section.description;  
+  newTitleinput.value = Section.name;
+
+  formSaveBtn.addEventListener("click", () => {
+    if (newTitleinput.value == "") {
+      alert("Kérlek add meg a szekció nevét!");
+    } else {
+
+      Section.name = newTitleinput.value.toUpperCase();
+      Section.description = descriptionInput.value.toUpperCase();
+      const sidebar = document.querySelector(".sidebar");
+      for (let i = myLibrary.length + 1; i > 1; i--) {
+        sidebar.removeChild(sidebar.lastChild);
+      }
+      showSections(myLibrary);
+      dialog.close();
+    }
+  });
+}
+
 export function clearSectionBar(myLibrary) {
   const sidebar = document.querySelector(".sidebar");
   for (let i = myLibrary.length; i > 1; i--) {
@@ -214,15 +276,31 @@ export function showSections(myLibrary) {
   const sidebar = document.querySelector(".sidebar");
   const sectionName = document.querySelector(".sectionName");
   const headerRight = document.querySelector(".headerRight");
+  const dialog = document.querySelector("dialog");
 
   for (let i = 0; i < myLibrary.length; i++) {
     const Sectionlink = document.createElement("button");
+    myLibrary[i].index = i;
     Sectionlink.textContent = myLibrary[i].name;
     sidebar.appendChild(Sectionlink);
     Sectionlink.addEventListener("click", () => {
-      if (headerRight.firstChild) {
+      const focusedBtn = document.querySelector(".focusedBtn");
+      if (focusedBtn) {
+        focusedBtn.classList.remove("focusedBtn")
+      }
+      Sectionlink.classList.add("focusedBtn");
+
+      while (headerRight.firstChild) {
         headerRight.removeChild(headerRight.firstChild);
       }
+      const editSectionBtn = document.createElement("button");
+      editSectionBtn.textContent = "SZERKESZTÉS";
+      headerRight.appendChild(editSectionBtn);
+
+      editSectionBtn.addEventListener("click", () => {
+        editSectionForm(myLibrary, myLibrary[i]);
+        dialog.showModal();
+      });
       const newBtn = document.createElement("button");
       newBtn.textContent = "ÚJ KÖNYV";
 

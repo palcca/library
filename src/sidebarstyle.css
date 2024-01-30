@@ -21,13 +21,13 @@
   color: white;
   font-size: 1.4rem;
   font-weight: bolder;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
   background-color: #0ea5e9;
-  border-left: 0.3rem solid white;
+  border-left: 0.3rem solid;
+  border-top: 0.3rem solid white;
   width: 80%;
   display: grid;
   border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
   text-overflow: ellipsis;
 }
 
@@ -62,8 +62,11 @@
   background-color: #d97706;
 }
 
-.sidebar button:focus{
+.sidebar .focusedBtn{
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   color:#d97706;
   background-color: white;
+  border-color: white;
 }
 
