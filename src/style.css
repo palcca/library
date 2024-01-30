@@ -26,8 +26,8 @@ body {
 .library {
   grid-area: 2/2/3/3;
   margin: 2rem;
-  display: inline-grid;
-  grid-template-columns: repeat(auto-fit, minmax(max(32rem, 40%), 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(40rem, 40%), 1fr));
   grid-template-rows: repeat(auto-fit, 8rem);
   gap: 1rem;
   overflow: auto;
